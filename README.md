@@ -28,20 +28,23 @@ On the request for >95 % precision, recall, F1 and accuracy, see [`docs/sota_and
 
 ## Quick start
 
-Python 3.10–3.13 (tested on 3.11).
+With [uv](https://docs.astral.sh/uv/) (recommended):
 
 ```bash
 git clone https://github.com/Aliktk/seer-breast-cancer-survival.git
 cd seer-breast-cancer-survival
-python -m venv .venv
-.venv\Scripts\activate            # Windows  (macOS/Linux: source .venv/bin/activate)
-pip install -r requirements-dev.txt
+uv sync                                    # creates .venv (Python 3.11) and installs everything from uv.lock
 
-streamlit run app/streamlit_app.py    # app (models are already in models/)
-python scripts/train.py               # retrain, ~2 min
-pytest                                # tests
-python scripts/run_notebooks.py       # re-run all notebooks, ~14 min
+uv run streamlit run app/streamlit_app.py  # app (models are already in models/)
+uv run jupyter lab                         # notebooks
+uv run python scripts/train.py             # retrain, ~2 min
+uv run pytest                              # tests
+uv run python scripts/run_notebooks.py     # re-run all notebooks, ~14 min
 ```
+
+To activate the environment instead of prefixing `uv run`: `.venv\Scripts\activate` (Windows) or `source .venv/bin/activate` (macOS/Linux).
+
+Without uv: `python -m venv .venv`, activate it, then `pip install -e . --group dev` (pip 25.1 or newer).
 
 ## Notebooks
 

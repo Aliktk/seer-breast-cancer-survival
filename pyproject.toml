@@ -10,6 +10,36 @@ readme = "README.md"
 requires-python = ">=3.10,<3.14"
 authors = [{ name = "Ali Nawaz" }]
 license = { text = "MIT" }
+# Runtime: package + Streamlit app (same pins as app/requirements.txt)
+dependencies = [
+    "streamlit==1.40.2",
+    "pandas==2.2.3",
+    "numpy==2.1.3",
+    "scipy==1.14.1",
+    "scikit-learn==1.5.2",
+    "scikit-survival==0.23.1",
+    "joblib==1.4.2",
+    "plotly==5.24.1",
+    "imbalanced-learn==0.12.4",
+]
+
+[dependency-groups]
+# Notebooks, training and tests (installed by `uv sync` by default)
+dev = [
+    "lifelines==0.30.0",
+    "xgboost==2.1.3",
+    "lightgbm==4.5.0",
+    "catboost==1.2.8",
+    "shap==0.46.0",
+    "optuna==5.0.0",
+    "statsmodels==0.14.4",
+    "matplotlib==3.9.2",
+    "seaborn==0.13.2",
+    "jupyterlab",
+    "nbconvert",
+    "ipykernel",
+    "pytest",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

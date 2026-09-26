@@ -1,5 +1,5 @@
-# Runtime dependencies (Streamlit app + inference).
-# Tested on Python 3.11. Wheels exist for 3.10–3.13.
+# Used by Streamlit Community Cloud (found before the root uv.lock).
+# Keep in sync with [project].dependencies in pyproject.toml.
 streamlit==1.40.2
 pandas==2.2.3
 numpy==2.1.3
