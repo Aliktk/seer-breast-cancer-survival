@@ -1,0 +1,240 @@
+{
+  "classifier_name": "LogReg (L1)",
+  "survival_model_name": "Coxnet (elastic net)",
+  "horizon_months": 60,
+  "threshold": 0.14736129419109817,
+  "threshold_rule": "Youden J on 5-fold out-of-fold training predictions",
+  "risk_group_cutoffs": [
+    0.07008988943653278,
+    0.13966250415176273
+  ],
+  "risk_group_rule": "tertiles of out-of-fold training risk",
+  "training_ranges": {
+    "numeric": {
+      "age": [
+        30.0,
+        69.0
+      ],
+      "grade": [
+        1.0,
+        4.0
+      ],
+      "tumor_size": [
+        1.0,
+        140.0
+      ],
+      "nodes_examined": [
+        1.0,
+        61.0
+      ],
+      "nodes_positive": [
+        1.0,
+        46.0
+      ]
+    },
+    "categorical": {
+      "race": [
+        "Black",
+        "Other",
+        "White"
+      ],
+      "marital_status": [
+        "Divorced",
+        "Married",
+        "Separated",
+        "Single",
+        "Widowed"
+      ],
+      "t_stage": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "n_stage": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "a_stage": [
+        "Distant",
+        "Regional"
+      ],
+      "estrogen_status": [
+        "Negative",
+        "Positive"
+      ],
+      "progesterone_status": [
+        "Negative",
+        "Positive"
+      ]
+    }
+  },
+  "reference_patient": {
+    "age": 54.0,
+    "race": "White",
+    "marital_status": "Married",
+    "t_stage": "T2",
+    "n_stage": "N1",
+    "grade": 2,
+    "a_stage": "Regional",
+    "tumor_size": 25.0,
+    "estrogen_status": "Positive",
+    "progesterone_status": "Positive",
+    "nodes_examined": 14.0,
+    "nodes_positive": 2.0
+  },
+  "test_metrics_classifier": {
+    "roc_auc": 0.7335706040784917,
+    "pr_auc": 0.39402180995799063,
+    "brier": 0.10393815262719282,
+    "log_loss": 0.3527133149034778,
+    "ece": 0.02345582205679988,
+    "cal_intercept": -0.022775528661427014,
+    "cal_slope": 0.9927056345299454,
+    "threshold": 0.14736129419109817,
+    "sensitivity": 0.6195652173913043,
+    "specificity": 0.7433628318584071,
+    "ppv": 0.28217821782178215,
+    "npv": 0.9230769230769231,
+    "f1": 0.3877551020408163,
+    "balanced_acc": 0.6814640246248558,
+    "accuracy": 0.726027397260274,
+    "roc_auc_ci95": [
+      0.6729266265639733,
+      0.791165229446107
+    ],
+    "n_test": 657,
+    "events_test": 92
+  },
+  "test_metrics_survival": {
+    "c_harrell": 0.7114965235908356,
+    "c_uno": 0.6934083290289706,
+    "mean_td_auc": 0.731179090875116,
+    "ibs": 0.09159658012820464,
+    "td_auc_36m": 0.7603941506937013,
+    "td_auc_60m": 0.7286814514241406,
+    "td_auc_84m": 0.6946088660517764,
+    "ibs_km_reference": 0.10301094865929822
+  },
+  "cv_classification": [
+    {
+      "model": "LogReg (L1)",
+      "mean": 0.7465519364508906,
+      "sd": 0.015701631923892526,
+      "n_folds": 5,
+      "se": 0.007021983267900898,
+      "complexity": 1
+    },
+    {
+      "model": "LogReg (L2)",
+      "mean": 0.744791159678348,
+      "sd": 0.017980544509640938,
+      "n_folds": 5,
+      "se": 0.008041143959203552,
+      "complexity": 1
+    },
+    {
+      "model": "Random Forest",
+      "mean": 0.7341448311903948,
+      "sd": 0.010802940225712519,
+      "n_folds": 5,
+      "se": 0.004831221740312023,
+      "complexity": 2
+    },
+    {
+      "model": "XGBoost",
+      "mean": 0.7319905957651418,
+      "sd": 0.015688592689586757,
+      "n_folds": 5,
+      "se": 0.007016151945044449,
+      "complexity": 2
+    },
+    {
+      "model": "HistGradBoost",
+      "mean": 0.7186092230304049,
+      "sd": 0.02228932605541442,
+      "n_folds": 5,
+      "se": 0.009968089646512777,
+      "complexity": 2
+    },
+    {
+      "model": "LightGBM",
+      "mean": 0.7069239391663733,
+      "sd": 0.02058206006536131,
+      "n_folds": 5,
+      "se": 0.00920457708462633,
+      "complexity": 2
+    },
+    {
+      "model": "MLP",
+      "mean": 0.7034919625350803,
+      "sd": 0.041234137242062235,
+      "n_folds": 5,
+      "se": 0.01844046677336137,
+      "complexity": 3
+    },
+    {
+      "model": "SVM (RBF)",
+      "mean": 0.6076320824081497,
+      "sd": 0.02908305195815652,
+      "n_folds": 5,
+      "se": 0.01300633623431927,
+      "complexity": 3
+    }
+  ],
+  "cv_survival": [
+    {
+      "model": "Random Survival Forest",
+      "mean": 0.737512245866176,
+      "sd": 0.015551161760878772,
+      "n_folds": 5,
+      "se": 0.006954690965284053,
+      "complexity": 2
+    },
+    {
+      "model": "Coxnet (elastic net)",
+      "mean": 0.7368947399412745,
+      "sd": 0.015014256099455512,
+      "n_folds": 5,
+      "se": 0.0067145794539946735,
+      "complexity": 1
+    },
+    {
+      "model": "Cox PH (ridge)",
+      "mean": 0.7355746935372733,
+      "sd": 0.015505274211390472,
+      "n_folds": 5,
+      "se": 0.0069341694292887075,
+      "complexity": 1
+    },
+    {
+      "model": "Gradient Boosted Survival",
+      "mean": 0.7350213975741181,
+      "sd": 0.013900179142736925,
+      "n_folds": 5,
+      "se": 0.006216349092516903,
+      "complexity": 2
+    }
+  ],
+  "n_train": 3219,
+  "n_test": 805,
+  "random_state": 42,
+  "input_columns": [
+    "age",
+    "race",
+    "marital_status",
+    "t_stage",
+    "n_stage",
+    "grade",
+    "a_stage",
+    "tumor_size",
+    "estrogen_status",
+    "progesterone_status",
+    "nodes_examined",
+    "nodes_positive"
+  ],
+  "trained_at_utc": "2026-09-25 19:33",
+  "python": "3.11.15",
+  "scikit_learn": "1.5.2"
+}

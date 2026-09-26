@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seer-survival"
+version = "1.0.0"
+description = "Survival analysis and 5-year mortality prediction on the SEER breast cancer cohort"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+authors = [{ name = "Ali Nawaz" }]
+license = { text = "MIT" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

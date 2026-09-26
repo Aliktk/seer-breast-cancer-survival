@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project
+catboost_info/
+data/interim/*.csv
+data/processed/*.csv
+reports/figures/*.png
+reports/tables/test_predictions.csv
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
